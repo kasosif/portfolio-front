@@ -1,0 +1,60 @@
+<div class="container">
+
+  <!-- section title -->
+  <h2 class="section-title wow fadeInUp">Recent works</h2>
+
+  <div class="spacer-60"></div>
+
+  <!-- portfolio filter (desktop) -->
+  <ul class="portfolio-filter list-inline wow fadeInUp">
+    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'all'}" (click)="workFilter = 'all'">Everything</li>
+    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'creative'}" (click)="workFilter = 'creative'">Creative</li>
+    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'art'}" (click)="workFilter = 'art'">Art</li>
+    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'design'}" (click)="workFilter = 'design'">Design</li>
+    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'branding'}" (click)="workFilter = 'branding'">Branding</li>
+  </ul>
+
+  <!-- portfolio filter (mobile) -->
+  <div class="pf-filter-wrapper">
+    <select class="portfolio-filter-mobile" (change)="onChange($event)">
+      <option value="all">Everything</option>
+      <option value="creative">Creative</option>
+      <option value="art">Art</option>
+      <option value="design">Design</option>
+      <option value="branding">Branding</option>
+    </select>
+  </div>
+
+  <!-- portolio wrapper -->
+  <div class="row portfolio-wrapper">
+    <!-- portfolio item -->
+    <ng-container *ngFor="let project of projects">
+      <div class="col-md-4 col-sm-6 grid-item creative design">
+        <a href="javascript:" class="work-content" data-toggle="modal" (click)="exampleModalCenter.show()">
+          <div class="portfolio-item rounded shadow-dark">
+            <div class="details">
+              <span class="term">Creative</span>
+              <h4 class="title">{{project.title}}</h4>
+              <span class="more-button"><i class="icon-options"></i></span>
+            </div>
+            <div class="thumb">
+              <img [src]="project.picture_url" [alt]="project.title" />
+              <div class="mask"></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered work-modal" [hideHeader]="true" [hideFooter]="true">
+        <div class="app-modal-body">
+          <div id="small-dialog" class="white-popup zoom-anim-dialog mfp-hide">
+            <img [src]="project.picture_url" [alt]="project.title" />
+            <h2>{{project.title}}</h2>
+            <p>{{project.description}}</p>
+            <a *ngIf="project.link" target="_blank" [href]="project.link" class="btn btn-default">Go to app</a>
+          </div>
+        </div>
+      </app-ui-modal>
+    </ng-container>
+  </div>
+</div>

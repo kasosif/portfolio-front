@@ -17,6 +17,8 @@
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */
+import '@angular/localize/init';
+import 'web-animations-js';
 
 /**
  * By default, zone.js will patch all possible macroTask and DomEvents

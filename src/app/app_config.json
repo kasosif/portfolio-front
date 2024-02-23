@@ -1,0 +1,7 @@
+{
+  "theme_config": {
+    "theme":  "vertical",
+    "themeType": "dark"
+  },
+  "mainApi": "/api/v1/main"
+}
