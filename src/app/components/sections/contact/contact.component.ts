@@ -3,6 +3,8 @@ import {ProfileInfo} from "../../../model/profileInfo.interface";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MainService} from "../../../services/main.service";
 import {ContactRequest} from "../../../model/contactRequest.interface";
+import {MatDialog} from "@angular/material/dialog";
+import {RequestSentComponent} from "./request-sent/request-sent.component";
 
 @Component({
   selector: 'app-contact',
@@ -12,7 +14,7 @@ import {ContactRequest} from "../../../model/contactRequest.interface";
 export class ContactComponent implements OnInit {
   @Input() info: ProfileInfo;
   contactForm: FormGroup;
-  constructor(private mainService: MainService) { }
+  constructor(private mainService: MainService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.initContactForm();
@@ -30,6 +32,7 @@ export class ContactComponent implements OnInit {
   }
   onSubmitContactForm() {
     if (this.contactForm.valid) {
+      this.contactForm.disable();
       let contactRequest: ContactRequest = {
         email: this.contactForm.value.email,
         full_name: this.contactForm.value.fullName,
@@ -37,7 +40,19 @@ export class ContactComponent implements OnInit {
         message: this.contactForm.value.message,
       }
       this.mainService.sendContactRequest(contactRequest).subscribe(res => {
-        alert(res.message);
+        if (res.code === 200) {
+          const modalConfig = {
+            closeOnNavigation: true,
+            autoFocus: false,
+            disableClose: false,
+            panelClass: [],
+            width: '700px',
+            data: {},
+          }
+          this.contactForm.reset();
+          this.dialog.open(RequestSentComponent,modalConfig);
+        }
+        this.contactForm.enable();
       })
     }
   }

@@ -38,12 +38,12 @@
               <span *ngIf="this.themeConfig.theme !== 'collapsed'">About</span>
             </a>
           </li>
-          <li class="nav-item" [ngClass]="{'active': currentSection === 'services'}" (click)="scrollTo('services')">
-            <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'services'}">
-              <i *ngIf="this.themeConfig.theme !== 'horizontal'" class="icon-briefcase"></i>
-              <span *ngIf="this.themeConfig.theme !== 'collapsed'">Services</span>
-            </a>
-          </li>
+<!--          <li class="nav-item" [ngClass]="{'active': currentSection === 'services'}" (click)="scrollTo('services')">-->
+<!--            <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'services'}">-->
+<!--              <i *ngIf="this.themeConfig.theme !== 'horizontal'" class="icon-briefcase"></i>-->
+<!--              <span *ngIf="this.themeConfig.theme !== 'collapsed'">Services</span>-->
+<!--            </a>-->
+<!--          </li>-->
           <li class="nav-item" [ngClass]="{'active': currentSection === 'experience'}" (click)="scrollTo('experience')">
             <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'experience'}">
               <i *ngIf="this.themeConfig.theme !== 'horizontal'" class="icon-graduation"></i>
@@ -95,11 +95,11 @@
             <span *ngIf="this.themeConfig.theme !== 'collapsed'">About</span>
           </a>
         </li>
-        <li [ngClass]="{'active': currentSection === 'services'}" (click)="scrollTo('services')">
-          <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'services'}"><i class="icon-briefcase"></i>
-            <span *ngIf="this.themeConfig.theme !== 'collapsed'">Services</span>
-          </a>
-        </li>
+<!--        <li [ngClass]="{'active': currentSection === 'services'}" (click)="scrollTo('services')">-->
+<!--          <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'services'}"><i class="icon-briefcase"></i>-->
+<!--            <span *ngIf="this.themeConfig.theme !== 'collapsed'">Services</span>-->
+<!--          </a>-->
+<!--        </li>-->
         <li [ngClass]="{'active': currentSection === 'experience'}" (click)="scrollTo('experience')">
           <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'experience'}"><i class="icon-graduation"></i>
             <span *ngIf="this.themeConfig.theme !== 'collapsed'">Experience</span>

@@ -5,30 +5,30 @@
 
   <div class="spacer-60"></div>
 
-  <!-- portfolio filter (desktop) -->
-  <ul class="portfolio-filter list-inline wow fadeInUp">
-    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'all'}" (click)="workFilter = 'all'">Everything</li>
-    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'creative'}" (click)="workFilter = 'creative'">Creative</li>
-    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'art'}" (click)="workFilter = 'art'">Art</li>
-    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'design'}" (click)="workFilter = 'design'">Design</li>
-    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'branding'}" (click)="workFilter = 'branding'">Branding</li>
-  </ul>
+<!--  &lt;!&ndash; portfolio filter (desktop) &ndash;&gt;-->
+<!--  <ul class="portfolio-filter list-inline wow fadeInUp">-->
+<!--    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'all'}" (click)="workFilter = 'all'">Everything</li>-->
+<!--    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'creative'}" (click)="workFilter = 'creative'">Creative</li>-->
+<!--    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'art'}" (click)="workFilter = 'art'">Art</li>-->
+<!--    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'design'}" (click)="workFilter = 'design'">Design</li>-->
+<!--    <li class="list-inline-item" [ngClass]="{'current': workFilter === 'branding'}" (click)="workFilter = 'branding'">Branding</li>-->
+<!--  </ul>-->
 
-  <!-- portfolio filter (mobile) -->
-  <div class="pf-filter-wrapper">
-    <select class="portfolio-filter-mobile" (change)="onChange($event)">
-      <option value="all">Everything</option>
-      <option value="creative">Creative</option>
-      <option value="art">Art</option>
-      <option value="design">Design</option>
-      <option value="branding">Branding</option>
-    </select>
-  </div>
+<!--  &lt;!&ndash; portfolio filter (mobile) &ndash;&gt;-->
+<!--  <div class="pf-filter-wrapper">-->
+<!--    <select class="portfolio-filter-mobile" (change)="onChange($event)">-->
+<!--      <option value="all">Everything</option>-->
+<!--      <option value="creative">Creative</option>-->
+<!--      <option value="art">Art</option>-->
+<!--      <option value="design">Design</option>-->
+<!--      <option value="branding">Branding</option>-->
+<!--    </select>-->
+<!--  </div>-->
 
   <!-- portolio wrapper -->
   <div class="row portfolio-wrapper">
     <!-- portfolio item -->
-    <ng-container *ngFor="let project of projects">
+    <ng-container *ngFor="let project of projects| orderBy: 'date': 'asc'">
       <div class="col-md-4 col-sm-6 grid-item creative design">
         <a href="javascript:" class="work-content" data-toggle="modal" (click)="exampleModalCenter.show()">
           <div class="portfolio-item rounded shadow-dark">

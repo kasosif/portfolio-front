@@ -21,4 +21,7 @@ export class MainService {
     return this.http.post<PortfolioApiResponse>(`${this.portfolioCoreUrl}${this.mainApi}/contact-request`, contactRequest);
   }
 
+  getResumes(): Observable<PortfolioApiResponse> {
+    return this.http.get<PortfolioApiResponse>(`${this.portfolioCoreUrl}${this.mainApi}/resumes`);
+  }
 }

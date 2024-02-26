@@ -2,7 +2,9 @@
   width: 108px;
   height: 108px;
   object-fit: cover;
+  border-radius: 50%;
 }
 .social_icon {
   width: 21px;
+  filter: grayscale(1);
 }

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Testimonial} from "../../../model/testimonial.interface";
+import {Skill} from "../../../model/skill.interface";
 
 @Component({
   selector: 'app-testimonials',
@@ -9,6 +10,7 @@ import {Testimonial} from "../../../model/testimonial.interface";
 export class TestimonialsComponent implements OnInit {
   @Input() themeType: string;
   @Input() testimonials: Testimonial[];
+  @Input() skills: Skill[];
 
   constructor() { }
 

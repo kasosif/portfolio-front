@@ -54,7 +54,8 @@ export class ViewComponent implements OnInit {
     this.aboutInfo = {
       description: this.fullProfile.about,
       picture_url: this.fullProfile.picture_url,
-      skills: this.fullProfile.skills
+      allSkills: this.fullProfile.skills,
+      skills: this.fullProfile.skills.filter(x => x.icon_only == false)
     }
     this.experienceInfo = {
       experiences: this.fullProfile.experiences,

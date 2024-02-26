@@ -22,6 +22,10 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HttpLoaderFactory} from "../../app.module";
 import {HttpClient} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {OrderByPipe} from "../../pipes/order-by.pipe";
+import {MatDialogModule} from "@angular/material/dialog";
+import { ResumesModalComponent } from './about/resumes-modal/resumes-modal.component';
+import { RequestSentComponent } from './contact/request-sent/request-sent.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     PricingComponent,
     TestimonialsComponent,
     GalleryComponent,
-    UiModalComponent
+    UiModalComponent,
+    OrderByPipe,
+    ResumesModalComponent,
+    RequestSentComponent
   ],
   exports: [
     HomeComponent,
@@ -64,7 +71,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
       extend: true,
     }),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ]
 })
 export class SectionsModule { }

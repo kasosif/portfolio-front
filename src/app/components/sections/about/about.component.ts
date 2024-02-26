@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AboutInfo} from "../../../model/aboutInfo.interface";
+import {MatDialog} from "@angular/material/dialog";
+import {ResumesModalComponent} from "./resumes-modal/resumes-modal.component";
 
 @Component({
   selector: 'app-about',
@@ -7,9 +9,8 @@ import {AboutInfo} from "../../../model/aboutInfo.interface";
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-
   @Input() info: AboutInfo;
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +25,22 @@ export class AboutComponent implements OnInit {
         return "success";
     }
     return "danger";
+  }
+
+  openResumesModal() {
+    const modalConfig = {
+      closeOnNavigation: false,
+      autoFocus: false,
+      disableClose: true,
+      panelClass: [],
+      width: '700px',
+      position: {
+        top: '20px'
+      },
+      data: {},
+    }
+    const dialog = this.dialog.open(ResumesModalComponent, modalConfig);
+
   }
 
 }

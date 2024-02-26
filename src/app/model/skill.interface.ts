@@ -4,5 +4,6 @@ export interface Skill {
   type: string;
   name: string;
   percentage: number,
+  icon_only: boolean,
   picture_url?: string | null;
 }
