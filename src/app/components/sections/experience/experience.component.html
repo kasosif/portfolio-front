@@ -1,7 +1,7 @@
 <div class="container">
 
   <!-- section title -->
-  <h2 class="section-title wow fadeInUp">Experience</h2>
+  <h2 class="section-title wow fadeInUp">{{'main.sections.experience.title' | translate}}</h2>
 
   <div class="spacer-60"></div>
 
@@ -15,7 +15,7 @@
         <!-- timeline item -->
         <div *ngFor="let education of info?.educations| orderBy: 'start_date': 'desc'" class="timeline-container wow fadeInUp">
           <div class="content">
-            <span *ngIf="education.current" class="time">{{education.start_date| date:'Y'}} - Present</span>
+            <span *ngIf="education.current" class="time">{{education.start_date| date:'Y'}} - {{'main.sections.experience.present' | translate}}</span>
             <ng-container *ngIf="!education.current">
               <span *ngIf="(education.start_date| date: 'Y') === (education.end_date|date: 'Y')" class="time">{{education.start_date| date:'Y'}}</span>
               <span *ngIf="(education.start_date| date: 'Y') !== (education.end_date|date: 'Y')" class="time">{{education.start_date| date:'Y'}} - {{education.end_date| date:'Y'}}</span>
@@ -43,7 +43,7 @@
         <!-- timeline item -->
         <div *ngFor="let experience of info?.experiences| orderBy: 'start_date': 'desc'" class="timeline-container wow fadeInUp">
           <div class="content">
-            <span *ngIf="experience.current" class="time">{{experience.start_date| date:'Y'}} - Present</span>
+            <span *ngIf="experience.current" class="time">{{experience.start_date| date:'Y'}} - {{'main.sections.experience.present' | translate}}</span>
             <ng-container *ngIf="!experience.current">
               <span *ngIf="(experience.start_date| date: 'Y') === (experience.end_date|date: 'Y')" class="time">{{experience.start_date| date:'Y'}}</span>
               <span *ngIf="(experience.start_date| date: 'Y') !== (experience.end_date|date: 'Y')" class="time">{{experience.start_date| date:'Y'}} - {{experience.end_date| date:'Y'}}</span>

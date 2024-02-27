@@ -1,5 +1,5 @@
 <!-- Preloader -->
-<div id="preloader" *ngIf="isSpinnerVisible" [ngClass]="{'light': this.themeConfig.themeType === 'light'}">
+<div id="preloader" *ngIf="loading" [ngClass]="{'light': this.themeConfig.themeType === 'light'}">
   <div class="outer">
     <!-- Google Chrome -->
     <div class="infinityChrome">

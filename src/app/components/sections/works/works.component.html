@@ -1,7 +1,7 @@
 <div class="container">
 
   <!-- section title -->
-  <h2 class="section-title wow fadeInUp">Recent works</h2>
+  <h2 class="section-title wow fadeInUp">{{'main.sections.works.title' | translate}}</h2>
 
   <div class="spacer-60"></div>
 
@@ -51,7 +51,7 @@
             <img [src]="project.picture_url" [alt]="project.title" />
             <h2>{{project.title}}</h2>
             <p>{{project.description}}</p>
-            <a *ngIf="project.link" target="_blank" [href]="project.link" class="btn btn-default">Go to app</a>
+            <a *ngIf="project.link" target="_blank" [href]="project.link" class="btn btn-default">{{'main.sections.works.go_to_app' | translate}}</a>
           </div>
         </div>
       </app-ui-modal>

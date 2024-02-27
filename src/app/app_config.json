@@ -3,5 +3,6 @@
     "theme":  "vertical",
     "themeType": "dark"
   },
+  "defaultLanguage": "en",
   "mainApi": "/api/v1/main"
 }

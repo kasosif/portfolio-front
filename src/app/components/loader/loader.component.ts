@@ -1,9 +1,5 @@
-import { Component, OnInit, Input, OnDestroy, Inject, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-/* spinner */
-import {Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError} from '@angular/router';
-import {DOCUMENT} from '@angular/common';
+import {Component, OnInit, OnDestroy, ChangeDetectorRef} from '@angular/core';
+import {LoaderService} from "../../services/loader.service";
 import appConfig from "../../app_config.json";
 
 @Component({
@@ -12,29 +8,23 @@ import appConfig from "../../app_config.json";
   styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent implements OnInit, OnDestroy {
-  public isSpinnerVisible = true;
+  public loading = false;
 
   public themeConfig: any;
 
-  constructor(private router: Router, @Inject(DOCUMENT) private document: Document, private activatedRoute: ActivatedRoute) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        this.isSpinnerVisible = true;
-      } else if ( event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationError) {
-        this.isSpinnerVisible = false;
-      }
-    }, () => {
-      this.isSpinnerVisible = false;
-    });
-
+  constructor(private loaderService: LoaderService, private cdr: ChangeDetectorRef) {
     this.themeConfig = appConfig.theme_config;
   }
 
   ngOnDestroy(): void {
-    this.isSpinnerVisible = false;
+    this.loading = false;
   }
 
   ngOnInit(): void {
+    this.loaderService.isLoading.subscribe((v) => {
+      this.loading = v;
+      this.cdr.detectChanges();
+    });
   }
 
 }

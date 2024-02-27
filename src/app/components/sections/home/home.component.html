@@ -8,7 +8,7 @@
 
     <!-- info -->
     <h1 class="mb-2 mt-0">{{info?.first_name}} {{info?.last_name}}</h1>
-    <span>I'm a
+    <span>{{'main.sections.home.i_am' | translate}}
       <span class="text-rotating morphext">
         <span><span>{{info?.job_description}}</span></span>
       </span>
@@ -25,14 +25,14 @@
 
     <!-- buttons -->
     <div class="mt-4">
-      <a href="javascript:" class="btn btn-default" (click)="scrollTo('contact')">Hire me</a>
+      <a href="javascript:" class="btn btn-default" (click)="scrollTo('contact')">{{'main.sections.home.hire_me' | translate}}</a>
     </div>
   </div>
 
   <!-- scroll down mouse wheel -->
   <div class="scroll-down" [ngClass]="{'light': themeType === 'light'}">
     <a href="javascript:" class="mouse-wrapper" (click)="scrollTo('about')">
-      <span>Scroll Down</span>
+      <span class="scroll-down-word">{{'main.sections.home.scroll_down' | translate}}</span>
       <span class="mouse">
         <span class="wheel"></span>
       </span>

@@ -1,0 +1,15 @@
+.language-nav {
+  & a {
+    cursor: pointer;
+  }
+  & .languages-container {
+    padding: 5px 30px;
+    & li {
+      cursor: pointer;
+      & .language-flag {
+        width: 25px;
+        margin-right: 10px
+      }
+    }
+  }
+}

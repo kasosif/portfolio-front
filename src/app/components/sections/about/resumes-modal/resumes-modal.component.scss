@@ -1,0 +1,50 @@
+::ng-deep {
+  .mat-dialog-container {
+    background-color: #353353;
+    padding: 15px 20px;
+  }
+}
+.resumes-description {
+  color: #fff;
+  margin-left: 10px;
+}
+.my-row {
+  color: #fff;
+  padding-bottom: 15px;
+  &:not(:first-child) {
+    padding-top: 15px;
+  }
+  &:last-child {
+    padding-bottom: 0;
+  }
+  &:not(:last-child) {
+    border-bottom: 2px solid #fff;
+  }
+  & .resume-language {
+    margin-top: 11px;
+    & .language-icon {
+      width: 25px;
+      margin-right: 5px;
+      margin-bottom: 3px;
+    }
+  }
+}
+.download-button {
+  float: right;
+}
+.my-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  & .my-modal-btns {
+    & .close-btn {
+      background: transparent;
+      border-radius: 25%;
+      & img {
+        width: 40px;
+      }
+    }
+  }
+}
+

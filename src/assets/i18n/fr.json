@@ -1,0 +1,48 @@
+{
+  "main": {
+    "nav": {
+      "home": "Accueil",
+      "about": "A propos",
+      "experience": "Expérience",
+      "works": "Projets",
+      "testimonials": "Témoignages",
+      "contact": "Contact",
+      "language": "Langue"
+    },
+    "sections": {
+      "home": {
+        "i_am": "je suis un",
+        "hire_me": "M'engager",
+        "scroll_down": "Défiler vers le bas"
+      },
+      "about": {
+        "title": "A propos de moi",
+        "download_cv": "Télécharger le CV",
+        "available_resumes": "CVs disponibles"
+      },
+      "experience": {
+        "title": "Expérience",
+        "present": "Aujourd’hui"
+      },
+      "works": {
+        "title": "Projets récents",
+        "go_to_app": "Aller à l'app"
+      },
+      "testimonials": {
+        "title": "Témoignages et avis"
+      },
+      "contact": {
+        "title": "Prenez contact",
+        "description": "Parlons de tout !",
+        "email_to": "Vous n'aimez pas les formulaires ? Envoyez-moi un <a href=\"mailto:{{email}}\">email</a>. \uD83D\uDC4B",
+        "form_placeholders": {
+          "full_name": "Votre nom",
+          "email": "Votre email",
+          "subject": "Sujet",
+          "message": "Message"
+        },
+        "send_message": "Envoyer"
+      }
+    }
+  }
+}

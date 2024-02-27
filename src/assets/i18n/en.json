@@ -1,0 +1,48 @@
+{
+  "main": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "experience": "Experience",
+      "works": "Projects",
+      "testimonials": "Testimonials",
+      "contact": "Contact",
+      "language": "Language"
+    },
+    "sections": {
+      "home": {
+        "i_am": "I'm a ",
+        "hire_me": "Hire me",
+        "scroll_down": "Scroll Down"
+      },
+      "about": {
+        "title": "About me",
+        "download_cv": "Download CV",
+        "available_resumes": "Available Resumes"
+      },
+      "experience": {
+        "title": "Experience",
+        "present": "Present"
+      },
+      "works": {
+        "title": "Recent projects",
+        "go_to_app": "Go to app"
+      },
+      "testimonials": {
+        "title": "Testimonials & Reviews"
+      },
+      "contact": {
+        "title": "Get In Touch",
+        "description": "Let's talk about everything!",
+        "email_to": "Don't like forms? Send me an <a href=\"mailto:{{email}}\">email</a>. \uD83D\uDC4B",
+        "form_placeholders": {
+          "full_name": "Your name",
+          "email": "Your email",
+          "subject": "Subject",
+          "message": "Message"
+        },
+        "send_message": "Send Message"
+      }
+    }
+  }
+}

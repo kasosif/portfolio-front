@@ -4,13 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {LoaderModule} from "./components/loader/loader.module";
 import {SharedModule} from "./components/shared/shared.module";
 import {LayoutComponent} from "./theme/layout/layout.component";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {LoaderComponent} from "./components/loader/loader.component";
+import {InterceptorService} from "./interceptors/interceptor.service";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -18,13 +19,13 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    LoaderComponent,
     LayoutComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    LoaderModule,
     SharedModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -38,7 +39,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

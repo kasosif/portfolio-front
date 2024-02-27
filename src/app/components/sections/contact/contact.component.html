@@ -1,7 +1,7 @@
 <div class="container">
 
   <!-- section title -->
-  <h2 class="section-title wow fadeInUp">Get In Touch</h2>
+  <h2 class="section-title wow fadeInUp">{{'main.sections.contact.title' | translate}}</h2>
 
   <div class="spacer-60"></div>
 
@@ -10,8 +10,8 @@
     <div class="col-md-4">
       <!-- contact info -->
       <div class="contact-info">
-        <h3 class="wow fadeInUp">Let's talk about everything!</h3>
-        <p class="wow fadeInUp">Don't like forms? Send me an <a [href]="'mailto:' + info?.email">email</a>. 👋</p>
+        <h3 class="wow fadeInUp">{{'main.sections.contact.description' | translate}}</h3>
+        <p class="wow fadeInUp" [innerHTML]="'main.sections.contact.email_to' | translate: {email: info?.email}"></p>
       </div>
     </div>
 
@@ -25,7 +25,7 @@
           <div class="column col-md-6">
             <!-- Name input -->
             <div class="form-group">
-              <input type="text" class="form-control" formControlName="fullName" id="InputName" placeholder="Your name" required="required" data-error="Name is required.">
+              <input type="text" class="form-control" formControlName="fullName" id="InputName" [placeholder]="'main.sections.contact.form_placeholders.full_name'|translate" required="required" data-error="Name is required.">
               <div class="help-block with-errors"></div>
             </div>
           </div>
@@ -33,7 +33,7 @@
           <div class="column col-md-6">
             <!-- Email input -->
             <div class="form-group">
-              <input type="email" class="form-control" id="InputEmail" formControlName="email" placeholder="Email address" required="required" data-error="Email is required.">
+              <input type="email" class="form-control" id="InputEmail" formControlName="email" [placeholder]="'main.sections.contact.form_placeholders.email'|translate" required="required" data-error="Email is required.">
               <div class="help-block with-errors"></div>
             </div>
           </div>
@@ -41,7 +41,7 @@
           <div class="column col-md-12">
             <!-- Email input -->
             <div class="form-group">
-              <input type="text" class="form-control" id="InputSubject" formControlName="subject" placeholder="Subject" required="required" data-error="Subject is required.">
+              <input type="text" class="form-control" id="InputSubject" formControlName="subject" [placeholder]="'main.sections.contact.form_placeholders.subject'|translate" required="required" data-error="Subject is required.">
               <div class="help-block with-errors"></div>
             </div>
           </div>
@@ -49,13 +49,13 @@
           <div class="column col-md-12">
             <!-- Message textarea -->
             <div class="form-group">
-              <textarea formControlName="message" id="InputMessage" class="form-control" rows="5" placeholder="Message" required="required" data-error="Message is required."></textarea>
+              <textarea formControlName="message" id="InputMessage" class="form-control" rows="5" [placeholder]="'main.sections.contact.form_placeholders.message'|translate" required="required" data-error="Message is required."></textarea>
               <div class="help-block with-errors"></div>
             </div>
           </div>
         </div>
 
-        <button type="submit" name="submit" id="submit" value="Submit" [disabled]="!contactForm.valid" class="btn btn-default">Send Message</button><!-- Send Button -->
+        <button type="submit" name="submit" id="submit" value="Submit" [disabled]="!contactForm.valid" class="btn btn-default">{{'main.sections.contact.send_message'|translate}}</button><!-- Send Button -->
 
       </form>
       <!-- Contact Form end -->

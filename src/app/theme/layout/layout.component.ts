@@ -5,6 +5,11 @@ import { animate, AUTO_STYLE, state, style, transition, trigger } from '@angular
 
 import { ScrollSpyService } from "../../components/scroll-spy/scroll-spy.service";
 import appConfig from "../../app_config.json";
+import {MainService} from "../../services/main.service";
+import {Language} from "../../model/language.interface";
+import {ActivatedRoute, Router} from "@angular/router";
+import {TranslateService} from "@ngx-translate/core";
+import {LoaderService} from "../../services/loader.service";
 
 @Component({
   selector: 'app-layout',
@@ -32,6 +37,8 @@ import appConfig from "../../app_config.json";
   ]
 })
 export class LayoutComponent implements OnInit {
+  languages: Language[];
+  languageMenuToggled: boolean = false;
   public currentSection;
   public themeConfig: any;
   public windowWidth: number;
@@ -47,12 +54,19 @@ export class LayoutComponent implements OnInit {
 
   public collapsedCard: string = 'collapsed';
 
-  constructor(public scrollSpy: ScrollSpyService, private location: Location) {
+  public selectedLanguage: string;
+
+  constructor(public scrollSpy: ScrollSpyService,
+              private loaderService: LoaderService,
+              private translate: TranslateService,
+              private mainService: MainService) {
     this.themeConfig = appConfig.theme_config;
     this.windowWidth = window.innerWidth;
   }
 
   ngOnInit(): void {
+    this.selectedLanguage = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en';
+    this.loadLanguages();
     this.scrollSpy.count.subscribe(c => {
       this.currentSection = c;
     });
@@ -124,5 +138,18 @@ export class LayoutComponent implements OnInit {
 
   toggleOpenClass() {
     this.openClass = (this.openClass === 'open') ? '' : 'open'
+  }
+
+  loadLanguages() {
+    this.mainService.getLanguages().subscribe(res => {
+      this.languages = res.result;
+    });
+  }
+
+  changeLanguage(language: Language) {
+    this.loaderService.isLoading.next(true);
+    localStorage.setItem('lang', language.code);
+    this.translate.use(language.code);
+    window.location.reload();
   }
 }
