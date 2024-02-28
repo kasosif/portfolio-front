@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import { Location } from '@angular/common';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 import { animate, AUTO_STYLE, state, style, transition, trigger } from '@angular/animations';
@@ -10,6 +10,8 @@ import {Language} from "../../model/language.interface";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TranslateService} from "@ngx-translate/core";
 import {LoaderService} from "../../services/loader.service";
+import {Meta, Title} from "@angular/platform-browser";
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-layout',
@@ -58,15 +60,18 @@ export class LayoutComponent implements OnInit {
 
   constructor(public scrollSpy: ScrollSpyService,
               private loaderService: LoaderService,
+              private route: ActivatedRoute,
+              private router: Router,
+              private titleService: Title,
+              private meta: Meta,
               private translate: TranslateService,
+              @Inject(DOCUMENT) private document: Document,
               private mainService: MainService) {
     this.themeConfig = appConfig.theme_config;
     this.windowWidth = window.innerWidth;
   }
 
   ngOnInit(): void {
-    this.selectedLanguage = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en';
-    this.loadLanguages();
     this.scrollSpy.count.subscribe(c => {
       this.currentSection = c;
     });
@@ -114,6 +119,7 @@ export class LayoutComponent implements OnInit {
     if (this.windowWidth > 991) {
       this.collapsedCard = 'false';
     }
+    this.changeLanguageByQueryParam();
   }
 
   onResize(e) {
@@ -140,12 +146,6 @@ export class LayoutComponent implements OnInit {
     this.openClass = (this.openClass === 'open') ? '' : 'open'
   }
 
-  loadLanguages() {
-    this.mainService.getLanguages().subscribe(res => {
-      this.languages = res.result;
-    });
-  }
-
   changeLanguage(language: Language) {
     this.loaderService.isLoading.next(true);
     localStorage.setItem('lang', language.code);
@@ -155,5 +155,38 @@ export class LayoutComponent implements OnInit {
 
   closeOpenClass() {
     this.openClass = '';
+  }
+
+  changeLanguageByQueryParam() {
+    this.route.queryParams.subscribe({
+      next: (params) => {
+        let lang: string = 'en';
+        if ('lang' in params) {
+          lang = params['lang'];
+          localStorage.setItem('lang', lang);
+          this.translate.use(lang);
+          this.router.navigate([], {
+            relativeTo: this.route,
+            queryParams: {lang: null},
+            queryParamsHandling: 'merge',
+          }).then(r => true);
+        } else {
+          if (!localStorage.getItem('lang')) {
+            localStorage.setItem('lang', appConfig.defaultLanguage);
+          }
+          lang = localStorage.getItem('lang');
+          this.translate.setDefaultLang(lang);
+          this.translate.use(lang);
+        }
+        this.document.documentElement.lang = lang;
+        this.selectedLanguage = lang;
+        this.mainService.getMetaData().subscribe(res => {
+          this.titleService.setTitle(res.result.title);
+          this.meta.addTag({property:'og:image', content: res.result.image });
+          this.meta.addTag({property:'og:title', content: res.result.title });
+          this.languages = res.result.languages;
+        })
+      },
+    });
   }
 }

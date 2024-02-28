@@ -11,8 +11,8 @@ export class MainService {
   mainApi = appConfig.mainApi;
   constructor(private http: HttpClient) { }
 
-  getTitle(): Observable<PortfolioApiResponse> {
-    return this.http.get<PortfolioApiResponse>(`${this.mainApi}/title`);
+  getMetaData(): Observable<PortfolioApiResponse> {
+    return this.http.get<PortfolioApiResponse>(`${this.mainApi}/metadata`);
   }
 
   getProfile(): Observable<PortfolioApiResponse> {
@@ -25,8 +25,5 @@ export class MainService {
 
   getResumes(): Observable<PortfolioApiResponse> {
     return this.http.get<PortfolioApiResponse>(`${this.mainApi}/resumes`);
-  }
-  getLanguages(): Observable<PortfolioApiResponse> {
-    return this.http.get<PortfolioApiResponse>(`${this.mainApi}/languages`);
   }
 }
