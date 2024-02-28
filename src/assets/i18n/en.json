@@ -1,4 +1,7 @@
 {
+  "buttons": {
+    "close": "Close"
+  },
   "main": {
     "nav": {
       "home": "Home",
@@ -41,7 +44,9 @@
           "subject": "Subject",
           "message": "Message"
         },
-        "send_message": "Send Message"
+        "send_message": "Send Message",
+        "request_sent_success": "Message successfully sent",
+        "request_sent_message": "Your contact request was sent successfully i will reply at the briefest delay"
       }
     }
   }

@@ -7,20 +7,20 @@
       </button>
     </div>
     <!-- logo image -->
-    <div class="site-logo">
-      <a routerLink="/">
-        <img [src]="this.themeConfig.themeType === 'light' ? 'assets/images/logo-dark.svg' : 'assets/images/logo.svg'" alt="Bolby" />
-      </a>
-    </div>
+<!--    <div class="site-logo">-->
+<!--      <a routerLink="/">-->
+<!--        <img [src]="this.themeConfig.themeType === 'light' ? 'assets/images/logo-dark.svg' : 'assets/images/logo.svg'" alt="" />-->
+<!--      </a>-->
+<!--    </div>-->
   </div>
 </header>
 
 <header *ngIf="this.themeConfig.theme === 'horizontal'" [ngClass]="desktopHeaderClass" (window:resize)="onResize($event)" #menu1>
   <div class="container">
     <nav class="navbar navbar-expand-lg" [ngClass]="horizontalNavClass">
-      <a class="navbar-brand" routerLink="/">
-        <img [src]="desktopLogo" alt="Bolby" />
-      </a>
+<!--      <a class="navbar-brand" routerLink="/">-->
+<!--        <img [src]="desktopLogo" alt="" />-->
+<!--      </a>-->
       <button (click)="collapsedCardToggle()" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -82,11 +82,11 @@
 
 <header *ngIf="this.themeConfig.theme !== 'horizontal'" class="d-flex align-items-start flex-column {{ openClass }}" [ngClass]="desktopHeaderClass">
   <!-- logo image -->
-  <div class="site-logo">
-    <a routerLink="/">
-      <img [src]="desktopLogo" alt="Bolby" />
-    </a>
-  </div>
+<!--  <div class="site-logo">-->
+<!--    <a routerLink="/">-->
+<!--      <img [src]="desktopLogo" alt="" />-->
+<!--    </a>-->
+<!--  </div>-->
 
   <!-- main menu -->
   <nav>
@@ -156,7 +156,7 @@
 
 </header>
 <!-- main layout -->
-<main class="{{ openClass }}" [ngClass]="contentClass">
+<main class="{{ openClass }}" [ngClass]="contentClass" (click)="closeOpenClass()">
   <router-outlet></router-outlet>
 
   <!-- Go to top button -->

@@ -1,4 +1,7 @@
 {
+  "buttons": {
+    "close": "Fermer"
+  },
   "main": {
     "nav": {
       "home": "Accueil",
@@ -41,7 +44,9 @@
           "subject": "Sujet",
           "message": "Message"
         },
-        "send_message": "Envoyer"
+        "send_message": "Envoyer",
+        "request_sent_success": "Message envoyé avec succès",
+        "request_sent_message": "Votre demande de contact a été envoyée avec succès. Je vous répondrai dans les plus brefs délais."
       }
     }
   }

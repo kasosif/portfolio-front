@@ -152,4 +152,8 @@ export class LayoutComponent implements OnInit {
     this.translate.use(language.code);
     window.location.reload();
   }
+
+  closeOpenClass() {
+    this.openClass = '';
+  }
 }

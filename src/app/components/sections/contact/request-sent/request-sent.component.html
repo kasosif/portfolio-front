@@ -4,11 +4,11 @@
       <img src="../../../../../assets/images/indicators/success.png" alt="success-icon">
     </div>
     <div class="col-md-6">
-      <h3>Message successfully sent</h3>
+      <h3>{{ 'main.sections.contact.request_sent_success' | translate }}</h3>
       <p class="success-decription">
-        Your contact request was sent successfully i will reply at the briefest delay
+        {{ 'main.sections.contact.request_sent_message' | translate }}
       </p>
-      <button (click)="onClose()" class="btn btn-default close-btn">Close</button>
+      <button (click)="onClose()" class="btn btn-default close-btn">{{ 'buttons.close' | translate }}</button>
     </div>
   </div>
 </div>
