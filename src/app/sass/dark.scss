@@ -1,5 +1,5 @@
 /*=================================================================*/
-/*                      DARK MODE                              
+/*                      DARK MODE
 /*=================================================================*/
 body.dark {
     color: #FFF;
@@ -7,7 +7,7 @@ body.dark {
     .section-title {
         color: #FFF;
         &:before {
-            background: url('./../assets/images/dots-bg-light.svg');
+            background: url('../../assets/main-images/dots-bg-light.svg');
         }
     }
     .bg-dark {
@@ -38,7 +38,7 @@ body.dark {
         }
     }
     .contact-info {
-        background-image: url('./../assets/images/map-light.png');
+        background-image: url('../../assets/main-images/map-light.png');
     }
     .white-popup {
         background: #302f4e;

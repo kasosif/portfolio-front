@@ -1,9 +1,9 @@
-import {Component, HostListener, Inject, OnInit} from '@angular/core';
-import { Location } from '@angular/common';
-import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
-import { animate, AUTO_STYLE, state, style, transition, trigger } from '@angular/animations';
+import {Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
+import {DOCUMENT} from '@angular/common';
+import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
+import {animate, AUTO_STYLE, state, style, transition, trigger} from '@angular/animations';
 
-import { ScrollSpyService } from "../../components/scroll-spy/scroll-spy.service";
+import {ScrollSpyService} from "../../components/scroll-spy/scroll-spy.service";
 import appConfig from "../../app_config.json";
 import {MainService} from "../../services/main.service";
 import {Language} from "../../model/language.interface";
@@ -11,12 +11,12 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {TranslateService} from "@ngx-translate/core";
 import {LoaderService} from "../../services/loader.service";
 import {Meta, Title} from "@angular/platform-browser";
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   providers: [NgbDropdownConfig],
   animations: [
     trigger('collapsedCard', [
